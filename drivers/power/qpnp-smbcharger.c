@@ -8442,6 +8442,7 @@ static int smbchg_probe(struct spmi_device *spmi)
 	schedule_delayed_work(&chip->usb_state_work,
 				msecs_to_jiffies(10000));
 
+	update_usb_status(chip, is_usb_present(chip), false);
 	dump_regs(chip);
 	create_debugfs_entries(chip);
 	rc = sysfs_create_file(&chip->dev->kobj,&attrs[0].attr);
