@@ -2111,6 +2111,16 @@ static void cnss_wlan_memory_expansion(void)
 
 	mutex_lock(&penv->fw_setup_stat_lock);
 	filename = cnss_wlan_get_evicted_data_file();
+	/* Check for firmware setup trigger by usersapce is in progress
+	 * and wait for complition of firmware setup.
+	 */
+
+	if (atomic_read(&penv->fw_store_in_progress)) {
+		wait_for_completion_timeout(&penv->fw_setup_complete,
+					    msecs_to_jiffies(FW_SETUP_DELAY));
+	}
+
+	mutex_lock(&penv->fw_setup_stat_lock);
 	pdev = penv->pdev;
 	dev = &pdev->dev;
 	cnss_seg_info = penv->cnss_seg_info;
