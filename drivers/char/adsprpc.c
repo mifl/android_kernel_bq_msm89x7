@@ -1745,6 +1745,7 @@ static int fastrpc_internal_mmap(struct fastrpc_file *fl,
 			       ud->flags, &map)){
 		mutex_unlock(&fl->map_mutex);
 		return 0;
+	}
 
 	VERIFY(err, !fastrpc_mmap_create(fl, ud->fd, (uintptr_t)ud->vaddrin,
 					 ud->size, ud->flags, &map));
