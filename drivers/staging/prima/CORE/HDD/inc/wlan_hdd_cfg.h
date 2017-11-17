@@ -301,6 +301,21 @@
 #define CFG_ENABLE_DYNAMIC_RA_START_RATE_MAX     (65535)
 #define CFG_ENABLE_DYNAMIC_RA_START_RATE_DEFAULT (0)
 
+/*
+ * gEnableRTTsupport
+ *
+ * @Min: 0 - Disabled
+ * @Max: 1 - Enabled
+ * @Default: 1 - Enabled
+ *
+ * The param is used to enable/disable support for RTT
+ */
+
+#define CFG_ENABLE_RTT_SUPPORT            "gEnableRTTSupport"
+#define CFG_ENABLE_RTT_SUPPORT_DEFAULT    (1)
+#define CFG_ENABLE_RTT_SUPPORT_MIN        (0)
+#define CFG_ENABLE_RTT_SUPPORT_MAX        (1)
+
 /* Bit mask value to enable RTS/CTS for different modes
  * for 2.4 GHz, HT20 - 0x0001, for 2.4 GHz, HT40 - 0x0002
  * for 2.4 GHz, VHT20 - 0x0004, for 2.4 GHz, VHT40 - 0x0008
@@ -3670,6 +3685,7 @@ typedef struct
    uint32_t                    max_sched_scan_plan_interval;
    uint32_t                    max_sched_scan_plan_iterations;
    uint32_t                    sta_auth_retries_for_code17;
+   uint8_t                     enable_rtt_support;
 } hdd_config_t;
 
 /*--------------------------------------------------------------------------- 
