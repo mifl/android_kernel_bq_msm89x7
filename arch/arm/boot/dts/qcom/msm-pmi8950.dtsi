@@ -204,14 +204,17 @@
 
 			qcom,iterm-ma = <100>;
 			qcom,float-voltage-mv = <4400>;
-			qcom,charging-timeout-mins = <768>;
 			qcom,float-voltage-comp = <16>;
 			qcom,fastchg-current-comp = <900>;
+			qcom,charging-timeout-mins = <768>;
 			qcom,resume-delta-mv = <50>;
 			qcom,chg-inhibit-fg;
 			qcom,rparasitic-uohm = <100000>;
 			qcom,bms-psy-name = "bms";
 			qcom,thermal-mitigation = <1600 1000 500 300 0>;
+			qcom,parallel-usb-min-current-ma = <1400>;
+			qcom,parallel-usb-9v-min-current-ma = <900>;
+			qcom,parallel-allowed-lowering-ma = <500>;
 			qcom,pmic-revid = <&pmi8950_revid>;
 			qcom,force-aicl-rerun;
 			qcom,aicl-rerun-period-s = <180>;
